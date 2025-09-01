@@ -9,7 +9,7 @@ An open-source React application that analyzes cybersecurity articles and genera
 - 🎯 **MITRE ATT&CK Integration**: Map techniques and tactics to the ATT&CK framework
 - 🖼️ **Image Analysis**: Process screenshots and diagrams from articles
 - 📤 **Multiple Export Formats**: Export as PNG, STIX 2.1 bundles, or Attack Flow Builder (.afb) files
-- ⚡ **Real-time Streaming**: Watch attack flows build in real-time as Claude analyzes content
+- ⚡ **Real-time Streaming**: Watch attack flows build in real-time as GPT-5 mini processes the content
 - 🎬 **Story Mode**: Cinematic playback of attack progression with customizable controls
 - 💾 **Save & Load**: Persistent storage of analyses with metadata and search capabilities
 - ⚙️ **Configurable**: Server-side configuration via environment variables
@@ -22,7 +22,7 @@ An open-source React application that analyzes cybersecurity articles and genera
 
 - Node.js (v18 or higher)
 - npm or yarn
-- Anthropic API key ([get one here](https://console.anthropic.com))
+- OpenAI API key ([get one here](https://platform.openai.com/api-keys))
 
 ## Setup
 
@@ -40,7 +40,7 @@ An open-source React application that analyzes cybersecurity articles and genera
 3. **Configure environment** (Required for server-side API calls)
    ```bash
    cp .env.example .env
-   # Edit .env and add your Anthropic API key
+   # Edit .env and add your OpenAI API key
    ```
 
 4. **Start the application**
@@ -52,11 +52,11 @@ An open-source React application that analyzes cybersecurity articles and genera
 
 ## Getting Your API Key
 
-1. Visit [console.anthropic.com](https://console.anthropic.com)
+1. Visit [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
 2. Sign in or create an account
 3. Go to **API Keys** and create a new key
-4. Copy the key (starts with "sk-ant-")
-5. Add it to your .env file as ANTHROPIC_API_KEY
+4. Copy the key (starts with "sk-")
+5. Add it to your .env file as OPENAI_API_KEY
 
 > 💡 **Note**: Your API key is used server-side only for better security. It's never exposed to the client.
 
@@ -66,7 +66,7 @@ An open-source React application that analyzes cybersecurity articles and genera
    - **URL Mode**: Paste a cybersecurity article URL and click "Analyze Article"
    - **Text Mode**: Paste article text directly for analysis
    
-2. **Watch Real-time Streaming**: Attack flow nodes and connections appear as Claude processes the content
+2. **Watch Real-time Streaming**: Attack flow nodes and connections appear as GPT-5 mini processes the content
 
 3. **Interactive Exploration**:
    - Click nodes to see detailed information with MITRE ATT&CK mappings
@@ -94,11 +94,11 @@ The application includes comprehensive error handling with:
 
 ### Common Error Solutions
 
-- **"Please set your Anthropic API key"**: Ensure ANTHROPIC_API_KEY is set in your .env file
+- **"Please set your OpenAI API key"**: Ensure OPENAI_API_KEY is set in your .env file
 - **"Network Connection Failed"**: Check your internet connection
 - **"Authentication Error"**: Verify your API key is correct in .env file
 - **"Rate Limit Exceeded"**: Wait a moment and try again
-- **"API Quota Exceeded"**: Check your Anthropic account billing
+- **"API Quota Exceeded"**: Check your OpenAI account billing
 - **"Invalid URL"**: Ensure the URL starts with http:// or https://
 
 ## Architecture
@@ -170,7 +170,7 @@ flow-viz/
 
 **Required:**
 ```env
-ANTHROPIC_API_KEY=your_api_key_here  # Required for server-side Claude API calls
+OPENAI_API_KEY=your_api_key_here  # Required for server-side Claude API calls
 ```
 
 **Optional (with defaults):**
@@ -205,11 +205,11 @@ If you encounter CORS errors:
 
 ### API Key Issues
 If the API key isn't working:
-1. Check your .env file has ANTHROPIC_API_KEY set correctly
-2. Verify the key starts with "sk-ant-" and has no extra spaces
+1. Check your .env file has OPENAI_API_KEY set correctly
+2. Verify the key starts with "sk-" and has no extra spaces
 3. Restart the server after updating .env: `npm run dev:full`
-4. Verify the key is valid in the Anthropic Console
-5. Ensure your Anthropic account has available credits
+4. Verify the key is valid in the OpenAI Console
+5. Ensure your OpenAI account has available credits
 
 ### Build Issues
 If the build fails:
