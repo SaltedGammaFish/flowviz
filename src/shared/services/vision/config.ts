@@ -1,7 +1,7 @@
 import { VisionAnalysisConfig, VisionPromptConfig } from './types';
 
 export const VISION_ANALYSIS_CONFIG: VisionAnalysisConfig = {
-  model: 'claude-sonnet-4-20250514',
+  model: 'gpt-5-mini',
   maxTokens: 8000, // Claude 4 supports higher limits for vision
   temperature: 0.1, // Restored for deterministic output
   timeout: 30000, // 30 seconds

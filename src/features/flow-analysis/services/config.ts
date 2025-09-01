@@ -1,6 +1,6 @@
 export const API_CONFIG = {
-  baseURL: 'https://api.anthropic.com',
-  model: 'claude-sonnet-4-20250514',
+  baseURL: 'https://api.openai.com/v1',
+  model: 'gpt-5-mini',
   maxTokens: 16000, // Model supports higher token limits
   temperature: 0.1, // Restored for deterministic output
 } as const;
